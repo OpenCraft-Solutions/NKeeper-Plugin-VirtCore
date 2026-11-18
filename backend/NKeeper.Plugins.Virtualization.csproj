@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The virt-core plugin (docs/architecture.md §7.36): what every hypervisor plugin shares. Its one assembly is
+    exported (plugin-security.md §7.1), so the hypervisor plugins (kvm, later proxmox) load this copy of it, and it's published
+    as a NuGet package for them to build against. Built, packed and signed by NKeeper.Plugin.Build, which also builds
+    ../frontend with npm. It brings the plugin's .nkp to ../artifacts/plugins.
+  -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>NKeeper.Plugins.Virtualization</PackageId>
+    <Authors>OpenCraft Solutions</Authors>
+    <Description>NKeeper's virt-core plugin, for the hypervisor plugins that depend on it: the guest provider contract and the guests session.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/OpenCraft-Solutions/NKeeper-Plugin-VirtCore</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- CS1591/CS1573: not every member or parameter needs a comment. -->
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <!-- The SDK is shared from the server, so it isn't copied into the plugin's output (plugin-security.md §7.1). -->
+    <PackageReference Include="NKeeper.Abstractions" ExcludeAssets="runtime" />
+    <PackageReference Include="NKeeper.Plugin.Build" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="NKeeper.Plugins.Virtualization.Tests" />
+  </ItemGroup>
+
+</Project>

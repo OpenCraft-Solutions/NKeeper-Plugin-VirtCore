@@ -1,0 +1,30 @@
+{
+  "name": "@nkeeper/plugin-virt-core",
+  "description": "The virt-core plugin's frontend: the guests tab the hypervisor plugins share.",
+  "private": true,
+  "license": "MIT",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "lint": "oxlint --deny-warnings",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@nkeeper/sdk": "npm:@opencraft-solutions/nkeeper-sdk@^1.8.0",
+    "@novnc/novnc": "^1.7.0",
+    "react": "^19.2.8"
+  },
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "devDependencies": {
+    "@types/novnc__novnc": "^1.6.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.0"
+  }
+}

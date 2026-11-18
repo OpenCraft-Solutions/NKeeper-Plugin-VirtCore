@@ -1,0 +1,16 @@
+{
+  "formatVersion": 1,
+  "id": "virt-core",
+  "name": "Virtualization",
+  "version": "1.0.0",
+  "sdkVersion": ">=1.8.0 <2.0.0",
+  "builtIn": true,
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "backend": {
+    "entryAssembly": "backend/NKeeper.Plugins.Virtualization.dll",
+    "entryType": "NKeeper.Plugins.Virtualization.VirtCorePlugin",
+    "exportedAssemblies": ["backend/NKeeper.Plugins.Virtualization.dll"]
+  }
+}

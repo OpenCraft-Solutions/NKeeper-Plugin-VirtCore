@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="backend/NKeeper.Plugins.Virtualization.csproj" />
+  <Project Path="tests/NKeeper.Plugins.Virtualization.Tests.csproj" />
+</Solution>
